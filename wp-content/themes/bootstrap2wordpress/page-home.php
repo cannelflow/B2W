@@ -2,8 +2,7 @@
 /**
  * Template Name: Home Page
  */
- 
-// advanced custome field
+
 
 get_header(); 
 
