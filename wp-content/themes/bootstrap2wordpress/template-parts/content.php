@@ -49,5 +49,6 @@
 
 	<!--<footer class="entry-footer">-->
 	<!--	<?php bootstrap2wordpress_entry_footer(); ?>-->
-	<!--</footer><!-- .entry-footer -->-->
+	<!--</footer>-->
+	<!-- .entry-footer -->
 </article><!-- #post-## -->

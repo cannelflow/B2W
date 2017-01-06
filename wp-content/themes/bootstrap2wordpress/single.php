@@ -9,13 +9,15 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	 <!-- MAIN CONTENT -->
+    <div class="container">
+	    <div class="row" id="primary">
+	      <main id="content" class="col-sm-8">
+	      	
+	      	<?php
+		   while ( have_posts() ) : the_post();
 
-		<?php
-		while ( have_posts() ) : the_post();
-
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content-page', get_post_format() );
 
 			the_post_navigation();
 
@@ -26,10 +28,16 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+	      	
+	      </main><!-- content -->
+	      
+	       <!-- SIDEBAR -->
+		    <aside class="col-sm-4">
+		    	<?php get_sidebar() ; ?>
+		    </aside>	
+		   <!-- SIDEBAR --> 	
+	      
+	    </div><!-- primary -->
+	</div><!-- container -->    
 <?php
-get_sidebar();
 get_footer();
