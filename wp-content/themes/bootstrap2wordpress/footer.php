@@ -33,17 +33,19 @@
 			</div><!-- end col -->
 			<div class="col-sm-6">
 				<nav>
-					<ul class="list-unstyled list-inline">
-						<li><a href="">Home</a></li>
-						<li><a href="">Blog</a></li>
-						<li><a href="">Resources</a></li>
-						<li><a href="">Contact</a></li>
-						<li class="signup-link"><a href="">Sign up now</a></li>
-					</ul>
+					<?php 
+             /* Primary navigation */
+             wp_nav_menu( array(
+                'theme_location'    => 'footer',
+                'depth'             =>  2,
+                'container'         => 'nav',
+                'menu_class'        => 'list-unstyled list-inline',
+                ))
+          ?>
 				</nav>
 			</div><!-- end col -->
 			<div class="col-sm-3">
-				<p class="pull-right">&copy; 2014 Brad Hussey</p>
+				<p class="pull-right"><?php bloginfo('name') ; ?> &copy; <?php echo date('Y') ; ?> Brad Hussey</p>
 			</div><!-- end col -->
 		</div><!-- container -->
 	</footer>
