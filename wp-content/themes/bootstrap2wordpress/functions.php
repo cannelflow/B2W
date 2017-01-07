@@ -188,3 +188,27 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/**
+ *This adds custome pagination
+ */
+
+function bswp_posts_navigation() {
+	// Don't print empty markup if there's nowhere to navigate.
+	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+	$next     = get_adjacent_post( false, '', false );
+
+	if ( ! $next && ! $previous ) {
+		return;
+	}
+	?>
+	<nav class="navigation post-navigation" role="navigation">
+		<h1 class="sr-only"><?php _e( 'Post navigation', 'bootstrapwp' ); ?></h1>
+		<ul class="pager">
+			<?php
+				previous_post_link( '<li class="previous">%link</li>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'bootstrapwp' ) );
+				next_post_link(     '<li class="next">%link</li>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'bootstrapwp' ) );
+			?>
+		</ul><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	<?php
+}
